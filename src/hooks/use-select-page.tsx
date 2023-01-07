@@ -6,9 +6,16 @@ import {
   useState,
 } from 'react'
 
+export enum SelectedPage {
+  HOME = 'home',
+  BENEFITS = 'benefits',
+  OUR_CLASSES = 'our-classes',
+  CONTACT_US = 'contact-us',
+}
+
 export type SelectPageContextType = {
-  selectedPage: string | null
-  setSelectedPage: Dispatch<SetStateAction<string | null>>
+  selectedPage: SelectedPage
+  setSelectedPage: Dispatch<SetStateAction<SelectedPage>>
 }
 
 export const SelectPageContext = createContext<SelectPageContextType>(
@@ -20,7 +27,9 @@ export type SelectPageProviderProps = {
 }
 
 export const SelectPageProvider = ({ children }: SelectPageProviderProps) => {
-  const [selectedPage, setSelectedPage] = useState<string | null>(null)
+  const [selectedPage, setSelectedPage] = useState<SelectedPage>(
+    SelectedPage.HOME
+  )
 
   return (
     <SelectPageContext.Provider value={{ selectedPage, setSelectedPage }}>
