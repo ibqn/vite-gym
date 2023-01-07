@@ -9,9 +9,11 @@ import {
 export type SelectPageContextType = {
   selectedPage: string | null
   setSelectedPage: Dispatch<SetStateAction<string | null>>
-} | null
+}
 
-export const SelectPageContext = createContext<SelectPageContextType>(null)
+export const SelectPageContext = createContext<SelectPageContextType>(
+  {} as SelectPageContextType
+)
 
 export type SelectPageProviderProps = {
   children: ReactNode
