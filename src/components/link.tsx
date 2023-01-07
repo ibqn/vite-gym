@@ -13,7 +13,6 @@ export const Link = (props: LinkProps) => {
     const element = document.getElementById(link)
     event.preventDefault()
 
-    console.log(element, link)
     element && element.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 

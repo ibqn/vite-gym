@@ -3,7 +3,7 @@ import Logo from '@/assets/Logo.png'
 import { classNames } from '@/util/class-names'
 import { Link } from '@/components/link'
 
-type Props = {}
+type NavbarProps = {}
 
 const pages = [
   { name: 'home' },
@@ -12,14 +12,16 @@ const pages = [
   { name: 'contact us' },
 ]
 
-export const Navbar = (props: Props) => {
+export const Navbar = (props: NavbarProps) => {
   const flexBetween = 'flex items-center justify-between'
   return (
     <nav>
       <div className={classNames(flexBetween, 'fixed top-0 z-30 w-full py-6')}>
         <div className={classNames(flexBetween, 'container mx-auto')}>
           <div>
-            <img src={Logo} alt="Logo" />
+            <a href="/">
+              <img src={Logo} alt="Logo" />
+            </a>
           </div>
           <div className={classNames(flexBetween)}>
             <ul className={classNames(flexBetween, 'gap-8 text-sm')}>
