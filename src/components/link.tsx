@@ -1,9 +1,25 @@
-import { ComponentProps } from 'react'
+import { type ComponentProps, type MouseEventHandler } from 'react'
 
 type LinkProps = {
   page: string
 } & ComponentProps<'a'>
 
 export const Link = (props: LinkProps) => {
-  return <a>Link</a>
+  const { page } = props
+
+  const link = page.toLowerCase().replace(/ /g, '-')
+
+  const handleClick: MouseEventHandler = (event) => {
+    const element = document.getElementById(link)
+    event.preventDefault()
+
+    console.log(element, link)
+    element && element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  return (
+    <a href="/" onClick={handleClick}>
+      {page}
+    </a>
+  )
 }

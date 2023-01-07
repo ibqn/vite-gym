@@ -1,4 +1,4 @@
-type Classes = (boolean | string)[]
+type ClassesType = (boolean | string)[]
 
-export const classNames = (...classes: Classes): string =>
+export const classNames = (...classes: ClassesType): string =>
   classes.filter(Boolean).join(' ')

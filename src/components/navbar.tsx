@@ -1,9 +1,16 @@
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import Logo from '@/assets/Logo.png'
 import { classNames } from '@/util/class-names'
-import { URL } from 'url'
+import { Link } from '@/components/link'
 
 type Props = {}
+
+const pages = [
+  { name: 'home' },
+  { name: 'benefits' },
+  { name: 'our classes' },
+  { name: 'contact us' },
+]
 
 export const Navbar = (props: Props) => {
   const flexBetween = 'flex items-center justify-between'
@@ -16,11 +23,17 @@ export const Navbar = (props: Props) => {
           </div>
           <div className={classNames(flexBetween)}>
             <ul className={classNames(flexBetween, 'gap-8 text-sm')}>
-              <li>home</li>
-              <li>benefits</li>
-              <li>our classes</li>
-              <li>contact us</li>
+              {pages.map((page, id) => {
+                const { name } = page
+
+                return (
+                  <li key={id}>
+                    <Link page={name} />
+                  </li>
+                )
+              })}
             </ul>
+
             <div>
               <a href="">sign in</a>
               <button>become a member</button>
