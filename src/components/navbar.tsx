@@ -26,7 +26,13 @@ export const Navbar = (props: NavbarProps) => {
             </a>
           </div>
 
-          <div className={classNames(flexBetween, 'w-full')}>
+          <div
+            className={classNames(
+              flexBetween,
+              !isAboveMediumScreens && 'hidden',
+              'w-full'
+            )}
+          >
             <ul className={classNames(flexBetween, 'gap-8 text-sm')}>
               {pages.map((page, id) => {
                 const { name } = page
@@ -44,6 +50,14 @@ export const Navbar = (props: NavbarProps) => {
               <button>become a member</button>
             </div>
           </div>
+          <button
+            className={classNames(
+              isAboveMediumScreens && 'hidden',
+              'rounded-full bg-secondary-500 p-2'
+            )}
+          >
+            <Bars3Icon className="h-6 w-6 text-white " />
+          </button>
         </div>
       </div>
     </nav>
