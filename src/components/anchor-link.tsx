@@ -1,18 +1,18 @@
-import { type SelectedPage } from '@/hooks/use-select-page'
-import { type ComponentProps } from 'react'
+import { SelectPageContext, type SelectedPage } from '@/hooks/use-select-page'
+import { useContext, type ComponentProps } from 'react'
 
 type AnchorLinkProps = {
-  page: string
+  link: SelectedPage
 } & ComponentProps<'a'>
 
 export const AnchorLink = (props: AnchorLinkProps) => {
-  const { page, onClick, children, ...otherProps } = props
-
-  const link = page.toLowerCase().replace(/ /g, '-') as SelectedPage
+  const { link, onClick, children, ...otherProps } = props
+  const { setSelectedPage } = useContext(SelectPageContext)
 
   const handleClick = () => {
     const element = document.getElementById(link)
     element && element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setSelectedPage(link)
   }
 
   return (

@@ -20,7 +20,6 @@ export const Navbar = (props: NavbarProps) => {
   const flexBetween = 'flex items-center justify-between'
   const isAboveMediumScreens = useMediaQuery(`(min-width: 1024px)`)
   const [isMenuToggled, setMenuToggled] = useState(false)
-  const { setSelectedPage } = useContext(SelectPageContext)
 
   return (
     <nav>
@@ -49,9 +48,8 @@ export const Navbar = (props: NavbarProps) => {
               <div className={classNames(flexBetween, 'gap-8')}>
                 <a href="">sign in</a>
                 <ActionButton
-                  page={SelectedPage.CONTACT_US}
-                  onClick={() => setSelectedPage(SelectedPage.CONTACT_US)}
-                  className="rounded-md bg-secondary-500 px-10 py-2 transition-all hover:bg-primary-500 hover:text-white hover:shadow-md"
+                  link={SelectedPage.CONTACT_US}
+                  className="rounded-md bg-secondary-500 px-10 py-2 transition-all duration-300 hover:bg-primary-500 hover:text-white hover:shadow-md"
                 >
                   become a member
                 </ActionButton>
