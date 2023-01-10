@@ -7,7 +7,6 @@ export const App = () => {
   return (
     <div className="bg-gray-20">
       <Navbar />
-
       <div className="container mx-auto">
         <div id="home" className="h-[1000px] bg-green-300"></div>
         <div id="benefits" className="h-[1000px] bg-blue-300"></div>

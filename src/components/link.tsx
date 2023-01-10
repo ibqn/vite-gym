@@ -6,7 +6,7 @@ import { AnchorLink } from '@/components/anchor-link'
 type LinkProps = { page: string } & ComponentProps<'a'>
 
 export const Link = (props: LinkProps) => {
-  const { selectedPage, setSelectedPage } = useContext(SelectPageContext)
+  const { selectedPage } = useContext(SelectPageContext)
   const { page } = props
 
   const link = page.toLowerCase().replace(/ /g, '-') as SelectedPage

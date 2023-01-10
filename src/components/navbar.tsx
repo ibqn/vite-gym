@@ -19,7 +19,7 @@ const pages = [
 export const Navbar = (props: NavbarProps) => {
   const flexBetween = 'flex items-center justify-between'
   const isAboveMediumScreens = useMediaQuery(`(min-width: 1024px)`)
-  const [isMenuToggled, setMenuToggled] = useState(false)
+  const [isMenuToggled, setIsMenuToggled] = useState(false)
 
   return (
     <nav>
@@ -56,12 +56,24 @@ export const Navbar = (props: NavbarProps) => {
               </div>
             </div>
           ) : (
-            <button className={classNames('rounded-full bg-secondary-500 p-2')}>
+            <button
+              className={classNames('z-40 rounded-full bg-secondary-500 p-2')}
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
               <Bars3Icon className="h-6 w-6 text-white" />
             </button>
           )}
         </div>
       </div>
+      {!isAboveMediumScreens && (
+        <div
+          className={classNames(
+            isMenuToggled ? 'translate-x-[300px]' : 'translate-x-0',
+            'transition-all duration-300',
+            'fixed bottom-0 right-0 z-10 flex h-full w-[300px] bg-primary-100 drop-shadow-xl'
+          )}
+        ></div>
+      )}
     </nav>
   )
 }
