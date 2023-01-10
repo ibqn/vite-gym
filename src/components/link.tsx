@@ -1,10 +1,9 @@
 import { type SelectedPage, SelectPageContext } from '@/hooks/use-select-page'
 import { classNames } from '@/util/class-names'
-import { useContext, type ComponentProps, type MouseEventHandler } from 'react'
+import { useContext, type ComponentProps } from 'react'
+import { AnchorLink } from '@/components/anchor-link'
 
-type LinkProps = {
-  page: string
-} & ComponentProps<'a'>
+type LinkProps = ComponentProps<typeof AnchorLink>
 
 export const Link = (props: LinkProps) => {
   const { selectedPage, setSelectedPage } = useContext(SelectPageContext)
@@ -12,23 +11,16 @@ export const Link = (props: LinkProps) => {
 
   const link = page.toLowerCase().replace(/ /g, '-') as SelectedPage
 
-  const handleClick: MouseEventHandler = (event) => {
-    const element = document.getElementById(link)
-    event.preventDefault()
-    setSelectedPage(link)
-    element && element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-
   return (
-    <a
-      href="/"
+    <AnchorLink
+      page={page}
       className={classNames(
         selectedPage === link && 'text-primary-500',
         'transition-colors duration-300 hover:text-primary-300'
       )}
-      onClick={handleClick}
+      onClick={() => setSelectedPage(link)}
     >
       {page}
-    </a>
+    </AnchorLink>
   )
 }
