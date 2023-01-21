@@ -68,11 +68,20 @@ export const Navbar = (props: NavbarProps) => {
       {!isAboveMediumScreens && (
         <div
           className={classNames(
-            isMenuToggled ? 'translate-x-[300px]' : 'translate-x-0',
+            isMenuToggled ? 'translate-x-0' : 'translate-x-[300px]',
             'transition-all duration-300',
-            'fixed bottom-0 right-0 z-10 flex h-full w-[300px] bg-primary-100 drop-shadow-xl'
+            'fixed bottom-0 right-0 z-30 flex h-full w-[300px] flex-col bg-primary-100 drop-shadow-xl'
           )}
-        ></div>
+        >
+          <div className="flex justify-end p-12">
+            <button
+              className="rounded-full p-2 transition-all duration-300 hover:shadow-lg"
+              onClick={() => setIsMenuToggled(false)}
+            >
+              <XMarkIcon className="h-6 w-6 text-gray-400" />
+            </button>
+          </div>
+        </div>
       )}
     </nav>
   )
