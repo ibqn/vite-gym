@@ -3,7 +3,7 @@ import Logo from '@/assets/Logo.png'
 import { classNames } from '@/util/class-names'
 import { Link } from '@/components/link'
 import { useMediaQuery } from '@/hooks/use-media-query'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { ActionButton } from '@/components/action-button'
 import { SelectedPage, SelectPageContext } from '@/hooks/use-select-page'
 
@@ -21,9 +21,33 @@ export const Navbar = (props: NavbarProps) => {
   const isAboveMediumScreens = useMediaQuery(`(min-width: 1024px)`)
   const [isMenuToggled, setIsMenuToggled] = useState(false)
 
+  const [isTopOfPage, setIsTopOfPage] = useState(true)
+  const { setSelectedPage } = useContext(SelectPageContext)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsTopOfPage(true)
+        setSelectedPage(SelectedPage.HOME)
+      } else {
+        setIsTopOfPage(false)
+      }
+    }
+
+    addEventListener('scroll', handleScroll)
+
+    return () => removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <nav>
-      <div className={classNames(flexBetween, 'fixed top-0 z-30 w-full py-6')}>
+      <div
+        className={classNames(
+          flexBetween,
+          isTopOfPage && 'bg-primary-100 drop-shadow',
+          'fixed top-0 z-30 w-full py-6 transition-all duration-300'
+        )}
+      >
         <div className={classNames(flexBetween, 'container mx-auto gap-16')}>
           <div>
             <a href="/">
@@ -47,10 +71,7 @@ export const Navbar = (props: NavbarProps) => {
 
               <div className={classNames(flexBetween, 'gap-8')}>
                 <a href="">sign in</a>
-                <ActionButton
-                  link={SelectedPage.CONTACT_US}
-                  className="rounded-md bg-secondary-500 px-10 py-2 transition-all duration-300 hover:bg-primary-500 hover:text-white hover:shadow-md"
-                >
+                <ActionButton link={SelectedPage.CONTACT_US}>
                   become a member
                 </ActionButton>
               </div>
@@ -81,6 +102,18 @@ export const Navbar = (props: NavbarProps) => {
               <XMarkIcon className="h-6 w-6 text-gray-400" />
             </button>
           </div>
+
+          <ul className="ml-[100px] flex flex-col gap-10 text-2xl capitalize">
+            {pages.map((page, id) => {
+              const { name } = page
+
+              return (
+                <li key={id} onClick={() => setIsMenuToggled(false)}>
+                  <Link page={name} />
+                </li>
+              )
+            })}
+          </ul>
         </div>
       )}
     </nav>
