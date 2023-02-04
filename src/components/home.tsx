@@ -19,7 +19,10 @@ type Props = {}
 
 export const Home = (props: Props) => {
   return (
-    <section id={SelectedPage.HOME} className="bg-gray-20 md:h-screen">
+    <section
+      id={SelectedPage.HOME}
+      className="flex flex-col justify-between bg-gray-20 md:h-screen"
+    >
       <div className="flex flex-col pt-32  md:flex-row">
         <div>
           <div className="md:basis-3/5">
@@ -47,7 +50,7 @@ export const Home = (props: Props) => {
         </div>
       </div>
 
-      <div className="hidden h-[150px] bg-primary-100 md:flex">
+      <div className="hidden bg-primary-100 py-8 md:flex">
         <div className="mx-auto flex w-5/6 items-center justify-between gap-8">
           {sponsors.map((sponsor, index) => {
             const { image, name } = sponsor
