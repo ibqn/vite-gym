@@ -23,18 +23,19 @@ export const Home = (props: Props) => {
       id={SelectedPage.HOME}
       className="flex flex-col justify-between bg-gray-20 md:h-screen"
     >
-      <div className="flex flex-col pt-32  md:flex-row">
+      <div className="flex h-5/6 flex-col pt-32 md:flex-row">
         <div>
           <div className="md:basis-3/5">
             <img src={HomePageText} alt="Home Page Text" />
           </div>
 
-          <p>
+          <p className="mt-8 text-sm">
             Unrivaled Gym. Unparalleled Training Fitness Classes. World Class
             Studios to get the Body Shapes That you Dream of... Get Your Dream
             Body Now.
           </p>
-          <div>
+
+          <div className="mt-8 flex items-center gap-8">
             <ActionButton link={SelectedPage.CONTACT_US}>Join Now</ActionButton>
             <AnchorLink
               className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
@@ -45,7 +46,7 @@ export const Home = (props: Props) => {
           </div>
         </div>
 
-        <div>
+        <div className="flex flex-1 basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-items-end">
           <img src={HomePageGraphic} alt="Home Page Graphic" />
         </div>
       </div>
