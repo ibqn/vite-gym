@@ -1,5 +1,5 @@
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
-import Logo from '@/assets/Logo.png'
+import Logo from '@/assets/logo.png'
 import { classNames } from '@/util/class-names'
 import { Link } from '@/components/link'
 import { useMediaQuery } from '@/hooks/use-media-query'
