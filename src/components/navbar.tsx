@@ -44,7 +44,7 @@ export const Navbar = (props: NavbarProps) => {
       <div
         className={classNames(
           flexBetween,
-          isTopOfPage && 'bg-primary-100 drop-shadow',
+          !isTopOfPage && 'bg-primary-100 drop-shadow',
           'fixed top-0 z-30 w-full py-6 transition-all duration-300'
         )}
       >
