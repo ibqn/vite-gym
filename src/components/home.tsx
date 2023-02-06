@@ -1,5 +1,6 @@
 import { SelectedPage } from '@/hooks/use-select-page'
 import HomePageText from '@/assets/home-page-text.png'
+import EvolveText from '@/assets/evolve-text.png'
 import HomePageGraphic from '@/assets/home-page-graphic.png'
 
 import SponsorRedBull from '@/assets/sponsor-red-bull.png'
@@ -23,10 +24,13 @@ export const Home = (props: Props) => {
       id={SelectedPage.HOME}
       className="flex flex-col justify-between bg-gray-20 md:h-screen"
     >
-      <div className="flex h-5/6 flex-col pt-32 md:flex-row">
-        <div>
-          <div className="md:basis-3/5">
-            <img src={HomePageText} alt="Home Page Text" />
+      <div className="grid grid-cols-1 grid-rows-2 pt-32 md:grid-cols-2 md:grid-rows-1">
+        <div className="flex flex-col justify-center">
+          <div className="relative flex">
+            <div className="absolute -top-16 -left-16 z-0 flex">
+              <img src={EvolveText} alt="Evolve Text" />
+            </div>
+            <img className="z-10" src={HomePageText} alt="Home Page Text" />
           </div>
 
           <p className="mt-8 text-sm">
@@ -46,7 +50,7 @@ export const Home = (props: Props) => {
           </div>
         </div>
 
-        <div className="flex flex-1 basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-items-end">
+        <div className="flex flex-1  justify-center md:justify-items-end">
           <img src={HomePageGraphic} alt="Home Page Graphic" />
         </div>
       </div>
