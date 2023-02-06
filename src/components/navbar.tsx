@@ -18,7 +18,7 @@ const pages = [
 
 export const Navbar = (props: NavbarProps) => {
   const flexBetween = 'flex items-center justify-between'
-  const isAboveMediumScreens = useMediaQuery(`(min-width: 1024px)`)
+  const isAboveMediumScreens = useMediaQuery(`(min-width: 1060px)`)
   const [isMenuToggled, setIsMenuToggled] = useState(false)
 
   const [isTopOfPage, setIsTopOfPage] = useState(true)
