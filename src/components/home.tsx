@@ -1,4 +1,7 @@
-import { SelectedPage } from '@/hooks/use-select-page'
+import { motion } from 'framer-motion'
+import { SelectedPage, SelectPageContext } from '@/hooks/use-select-page'
+import { useContext } from 'react'
+
 import HomePageText from '@/assets/home-page-text.png'
 import EvolveText from '@/assets/evolve-text.png'
 import HomePageGraphic from '@/assets/home-page-graphic.png'
@@ -19,8 +22,11 @@ const sponsors = [
 type Props = {}
 
 export const Home = (props: Props) => {
+  const { setSelectedPage } = useContext(SelectPageContext)
+
   return (
-    <section
+    <motion.section
+      onViewportEnter={() => setSelectedPage(SelectedPage.HOME)}
       id={SelectedPage.HOME}
       className="flex flex-col justify-between bg-gray-20 md:h-screen"
     >
@@ -63,6 +69,6 @@ export const Home = (props: Props) => {
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
