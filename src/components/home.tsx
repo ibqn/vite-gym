@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { SelectedPage, SelectPageContext } from '@/hooks/use-select-page'
-import { useContext } from 'react'
+import { SelectedPage } from '@/hooks/use-select-page'
 
 import HomePageText from '@/assets/home-page-text.png'
 import EvolveText from '@/assets/evolve-text.png'
@@ -12,6 +11,7 @@ import SponsorForbes from '@/assets/sponsor-forbes.png'
 
 import { ActionButton } from '@/components/action-button'
 import { AnchorLink } from '@/components/anchor-link'
+import { Section } from '@/components/section'
 
 const sponsors = [
   { image: SponsorRedBull, name: 'Red Bull' },
@@ -22,12 +22,9 @@ const sponsors = [
 type Props = {}
 
 export const Home = (props: Props) => {
-  const { setSelectedPage } = useContext(SelectPageContext)
-
   return (
-    <motion.section
-      onViewportEnter={() => setSelectedPage(SelectedPage.HOME)}
-      id={SelectedPage.HOME}
+    <Section
+      page={SelectedPage.HOME}
       className="flex flex-col justify-between bg-gray-20 md:h-screen"
     >
       <div className="grid grid-cols-1 grid-rows-2 pt-32 md:grid-cols-2 md:grid-rows-1">
@@ -100,6 +97,6 @@ export const Home = (props: Props) => {
           })}
         </div>
       </div>
-    </motion.section>
+    </Section>
   )
 }
