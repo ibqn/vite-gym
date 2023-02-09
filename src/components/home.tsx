@@ -25,7 +25,7 @@ export const Home = (props: Props) => {
   return (
     <Section
       page={SelectedPage.HOME}
-      className="flex flex-col justify-between bg-gray-20 md:h-screen"
+      className="flex flex-col justify-between bg-gray-20 md:min-h-screen"
     >
       <div className="grid grid-cols-1 grid-rows-2 pt-32 md:grid-cols-2 md:grid-rows-1">
         <div className="flex flex-col justify-center">
