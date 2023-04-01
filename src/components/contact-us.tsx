@@ -1,4 +1,4 @@
-import { Section } from './section'
+import { Section } from '@/components/section'
 import { SelectedPage } from '@/hooks/use-select-page'
 
 type Props = {}
