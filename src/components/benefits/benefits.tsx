@@ -2,7 +2,8 @@ import { SelectedPage } from '@/hooks/use-select-page'
 import { Section } from '@/components/section'
 import { motion } from 'framer-motion'
 import { benefits } from './items'
-import { BenefitItem } from '../benefit-item'
+import { BenefitItem } from '@/components/benefit-item'
+import { HTitle } from '@/components/h-title'
 
 type Props = {}
 
@@ -10,10 +11,10 @@ export const Benefits = (props: Props) => {
   return (
     <Section
       page={SelectedPage.BENEFITS}
-      className="xbg-blue-300 mx-auto min-h-screen py-20 md:w-3/5"
+      className="mx-auto min-h-screen w-full py-20"
     >
       <motion.div
-        className="my-5"
+        className="md:my-5 md:w-3/5"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
@@ -23,9 +24,7 @@ export const Benefits = (props: Props) => {
           visible: { opacity: 1, x: 0 },
         }}
       >
-        <h2 className="font-montserrat text-3xl font-bold uppercase">
-          more than just gym.
-        </h2>
+        <HTitle>more than just gym.</HTitle>
         <p className="my-5 text-sm">
           We provide world class fitness equipment, trainers and classes to get
           you to your ultimate fitness goals with ease. We provide true care
@@ -37,7 +36,7 @@ export const Benefits = (props: Props) => {
         className="flex flex-col items-center justify-between gap-8 md:flex-row"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 'some' }}
         variants={{
           hidden: {},
           visible: { transition: { staggerChildren: 0.2 } },
