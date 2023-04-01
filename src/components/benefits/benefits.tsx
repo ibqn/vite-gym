@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { benefits } from './items'
 import { BenefitItem } from '@/components/benefit-item'
 import { HTitle } from '@/components/h-title'
+import BenefitsPageGraphic from '@/assets/benefits-page-graphic.png'
 
 type Props = {}
 
@@ -46,6 +47,14 @@ export const Benefits = (props: Props) => {
           return <BenefitItem key={index} benefit={benefit} />
         })}
       </motion.div>
+
+      <div className="mt-16 flex items-center justify-between gap-20 md:mt-28">
+        <img
+          className="mx-auto"
+          src={BenefitsPageGraphic}
+          alt="Benefits page graphic"
+        />
+      </div>
     </Section>
   )
 }
