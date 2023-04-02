@@ -2,6 +2,8 @@ import { SelectedPage } from '@/hooks/use-select-page'
 import { Section } from '@/components/section'
 import { motion } from 'framer-motion'
 import { HTitle } from '@/components/h-title'
+import { ourClasses } from './items'
+import { OurClassItem } from '@/components/our-class-item'
 
 type Props = {}
 
@@ -29,6 +31,14 @@ export const OurClasses = (props: Props) => {
             </p>
           </div>
         </motion.div>
+
+        <div className="xxh-[353px] mt-10 w-full overflow-x-auto">
+          <ul className="flex w-fit flex-row gap-x-5">
+            {ourClasses.map((classItem, index) => {
+              return <OurClassItem ourClass={classItem} key={index} />
+            })}
+          </ul>
+        </div>
       </Section>
     </div>
   )

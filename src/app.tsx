@@ -6,7 +6,7 @@ import { ContactUs } from '@/components/contact-us'
 
 export const App = () => {
   return (
-    <div className="bg-gray-20">
+    <div className="w-full overflow-x-hidden bg-gray-20">
       <Navbar />
       <Home />
       <Benefits />
