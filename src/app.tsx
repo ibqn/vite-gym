@@ -8,12 +8,10 @@ export const App = () => {
   return (
     <div className="bg-gray-20">
       <Navbar />
-      <div className="container mx-auto">
-        <Home />
-        <Benefits />
-        <OurClasses />
-        <ContactUs />
-      </div>
+      <Home />
+      <Benefits />
+      <OurClasses />
+      <ContactUs />
     </div>
   )
 }

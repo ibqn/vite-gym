@@ -11,12 +11,14 @@ export const Section = (props: Props) => {
   const { page, children, className } = props
 
   return (
-    <motion.section
-      onViewportEnter={() => setSelectedPage(page)}
-      className={className}
-      id={page}
-    >
-      {children}
-    </motion.section>
+    <div className="container mx-auto">
+      <motion.section
+        onViewportEnter={() => setSelectedPage(page)}
+        className={className}
+        id={page}
+      >
+        {children}
+      </motion.section>
+    </div>
   )
 }
