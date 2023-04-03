@@ -10,7 +10,7 @@ type Props = {}
 export const OurClasses = (props: Props) => {
   return (
     <div className="bg-primary-100">
-      <Section page={SelectedPage.OUR_CLASSES} className="h-[1000px]  py-40">
+      <Section page={SelectedPage.OUR_CLASSES} className="py-40">
         <motion.div
           initial="hidden"
           whileInView="visible"
