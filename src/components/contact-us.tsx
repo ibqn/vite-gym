@@ -2,8 +2,8 @@ import { useForm } from 'react-hook-form'
 import { Section } from '@/components/section'
 import { SelectedPage } from '@/hooks/use-select-page'
 import { motion } from 'framer-motion'
-import { HTitle } from './h-title'
 import ContactUsPageGraphic from '@/assets/contact-us-page-graphic.png'
+import { HTitle } from '@/components/h-title'
 
 type Props = {}
 
