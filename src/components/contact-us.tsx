@@ -3,6 +3,7 @@ import { Section } from '@/components/section'
 import { SelectedPage } from '@/hooks/use-select-page'
 import { motion } from 'framer-motion'
 import ContactUsPageGraphic from '@/assets/contact-us-page-graphic.png'
+import EvolveTextGraphic from '@/assets/evolve-text.png'
 import { HTitle } from '@/components/h-title'
 
 type Props = {}
@@ -39,7 +40,7 @@ export const ContactUs = (props: Props) => {
 
       <div className="mt-10 flex flex-col justify-between gap-8 md:flex-row">
         <motion.div
-          className="relative mt-16 basis-2/5 md:mt-0"
+          className="mt-16 basis-2/5 md:mt-0"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -49,9 +50,14 @@ export const ContactUs = (props: Props) => {
             visible: { opacity: 1, y: 0 },
           }}
         >
-          <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:md:content-evolvetext">
+          <div className="relative flex">
             <img
-              className="w-full"
+              className="absolute -bottom-16 -right-10 w-full"
+              src={EvolveTextGraphic}
+              alt="Evolve"
+            />
+            <img
+              className="z-10 w-full"
               alt="contact-us-page-graphic"
               src={ContactUsPageGraphic}
             />
