@@ -4,6 +4,10 @@ import { motion } from 'framer-motion'
 import { HTitle } from '@/components/h-title'
 import { ourClasses } from './items'
 import { OurClassItem } from '@/components/our-class-item'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 type Props = {}
 
@@ -32,13 +36,21 @@ export const OurClasses = (props: Props) => {
           </div>
         </motion.div>
 
-        <div className="xxh-[353px] mt-10 w-full overflow-x-auto">
-          <ul className="flex w-fit flex-row gap-x-5">
-            {ourClasses.map((classItem, index) => {
-              return <OurClassItem ourClass={classItem} key={index} />
-            })}
-          </ul>
-        </div>
+        <Swiper
+          grabCursor={true}
+          breakpoints={{
+            320: { spaceBetween: 18 },
+            768: { spaceBetween: 20 },
+          }}
+        >
+          {ourClasses.map((classItem, index) => {
+            return (
+              <SwiperSlide className="max-w-[450px]" key={index}>
+                <OurClassItem ourClass={classItem} />
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
       </Section>
     </div>
   )

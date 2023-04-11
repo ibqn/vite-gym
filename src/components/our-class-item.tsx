@@ -8,7 +8,7 @@ export const OurClassItem = ({ ourClass }: Props) => {
   const { image, name, description } = ourClass
 
   return (
-    <li className="relative h-auto w-[450px]">
+    <div className="relative h-auto w-[450px]">
       <div
         className={classNames(
           'absolute z-10 flex h-full w-full',
@@ -21,6 +21,6 @@ export const OurClassItem = ({ ourClass }: Props) => {
         <p className="mt-4">{description}</p>
       </div>
       <img src={image} alt="Our classes" />
-    </li>
+    </div>
   )
 }

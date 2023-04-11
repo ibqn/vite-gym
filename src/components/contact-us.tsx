@@ -120,6 +120,7 @@ export const ContactUs = (props: Props) => {
             </button>
           </form>
         </motion.div>
+
         <motion.div
           className="mt-16 basis-2/5 md:mt-0"
           initial="hidden"
